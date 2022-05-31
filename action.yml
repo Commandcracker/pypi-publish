@@ -1,4 +1,4 @@
-name: PyPI Publish
+name: PyPI Publish & Release/Tag
 description: Automatically publish packages to PyPI and crete Tags and Releases
 author: Commandcracker
 

@@ -29,7 +29,7 @@ jobs:
         run: python setup.py sdist
 
       - name: Publish Package and create Tag and Releases
-        uses: Commandcracker/pypi-publish@master
+        uses: Commandcracker/pypi-publish@v1
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
