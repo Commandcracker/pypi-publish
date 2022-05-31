@@ -55,7 +55,7 @@ jobs:
 
 Set them like this: `{var_name}`
 
-| Variable`         | Description                                                 |
+| Variable          | Description                                                 |
 |-------------------|-------------------------------------------------------------|
 | `release_url`     | `{repository_url}project/{package_name}/{package_version}/` |
 | `changelog_url`   | `https://github.com/{github_repository}/compare/?...?`      |
