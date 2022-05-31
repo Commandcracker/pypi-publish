@@ -1,0 +1,58 @@
+name: PyPI Publish
+description: Automatically publish packages to PyPI and crete Tags and Releases
+author: Commandcracker
+
+branding:
+  icon: upload
+  color: green
+
+inputs:
+  # PyPI
+  user:
+    description: PyPI user
+    required: false
+    default: __token__
+  password:
+    description: Password for the PyPI user or an access token
+    required: true
+  repository:
+    description: The repository URL for PyPI
+    required: false
+  verify_metadata:
+    description: Check distribution metadata before uploading
+    required: false
+    default: true
+  dist_path:
+    description: The path to the dist directory
+    required: false
+    default: dist
+  verbose:
+    description: Show verbose output.
+    required: false
+    default: false
+  print_hash:
+    description: Show hash values of distribution to be uploaded
+    required: false
+    default: true
+  add_hash:
+    description: Add hash values to release assets
+    required: false
+    default: true
+  # Tags and Releases Creation
+  github_token:
+    description: secrets.GITHUB_TOKEN
+    required: true
+  prefix:
+    description: Prefix to add to the version tag
+    required: false
+  suffix:
+    description: Suffix to add to the version tag
+    required: false
+  releases_message:
+    description: Message for the release
+    required: false
+    default: "**View releases at**: [PyPI]({release_url})\n**Full Changelog**: {changelog_url}"
+
+runs:
+  using: docker
+  image: Dockerfile
