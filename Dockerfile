@@ -5,4 +5,4 @@ COPY main.py .
 
 RUN set -x && pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", ".github/actions/pypi-publish/main.py"]
+CMD ["python", "main.py"]
