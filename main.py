@@ -5,7 +5,7 @@
 from os import getenv
 from pathlib import Path
 from hashlib import sha256, md5, blake2b
-from pkginfo import UnpackedSDist
+from pkginfo import SDist
 from json import loads
 import re
 
@@ -71,15 +71,15 @@ def get_package_info(dist_dir: Path) -> tuple:
     """
     egg_info = None
 
-    for file in dist_dir.parent.resolve().absolute().iterdir():
-        if file.name.endswith(".egg-info"):
+    for file in dist_dir.resolve().absolute().iterdir():
+        if file.name.endswith(".tar.gz"):
             egg_info = file
 
     if egg_info is None:
         print("[red]egg-info not found.")
         exit(1)
 
-    pkg = UnpackedSDist(egg_info)
+    pkg = SDist(egg_info)
     return pkg.name, pkg.version
 
 

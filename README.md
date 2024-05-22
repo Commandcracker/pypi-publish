@@ -10,25 +10,35 @@ You don't need to set `secrets.GITHUB_TOKEN` (its automatically set).
 
 ```yml
 name: Publish
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
+      - name: Checkout 🛎️
+        uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Set up Python 🧰
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
 
-      - name: Building Project
-        run: python setup.py sdist
+      - name: Install dependencies 🧰
+        env:
+          PIP_ROOT_USER_ACTION: ignore
+        run: |
+          python -m pip install --upgrade pip
+          pip install build
 
-      - name: Publish Package and create Tag and Releases
+      - name: Build package 🔨
+        run: python -m build
+
+      - name: Publish package 🚀
         uses: Commandcracker/pypi-publish@v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
