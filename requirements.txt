@@ -1,4 +1,5 @@
-twine~=5.1.0    # uploader for PyPI
-rich~=13.7.1    # rich is also a dependency of twine and pip so it should already be installed.
-PyGithub~=2.3.0 # for creating tags and releases
-urllib3~=2.2.1  # for getting the latest version of the package
+twine~=6.1.0      # uploader for PyPI
+rich~=14.0.0      # rich is also a dependency of twine and pip so it should already be installed.
+PyGithub~=2.6.1   # for creating tags and releases
+urllib3~=2.3.0    # for getting the latest version of the package
+pkginfo~=1.12.1.2 # for reading package version and name

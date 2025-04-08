@@ -5,11 +5,11 @@
 from os import getenv
 from pathlib import Path
 from hashlib import sha256, md5, blake2b
-from pkginfo import SDist
 from json import loads
 import re
 
 # pip modules:
+from pkginfo import SDist
 from twine.commands.upload import upload
 from twine.commands.check import check
 from twine.settings import Settings

@@ -1,12 +1,7 @@
-FROM docker.io/python:3.12.3-bookworm
+FROM docker.io/python:3.13.2-alpine
 
-COPY requirements.txt /.
-COPY main.py /.
+COPY requirements.txt main.py /
 
-ENV PIP_ROOT_USER_ACTION=ignore
-
-RUN set -eux; \
-    pip install --upgrade pip; \
-    pip install --no-cache-dir --requirement requirements.txt
+RUN pip install --no-cache-dir --requirement requirements.txt
 
 CMD ["python", "/main.py"]
